@@ -1,0 +1,230 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+h1, h2, h3, h4, h5, h6{
+    font-weight: normal;
+}
+body{
+    overflow-x: hidden;
+    nav{
+        background-color: rgb(178, 119, 212);
+        position: sticky;
+        top: 0;
+        z-index: 5;
+        min-height: 10vh;
+        display: flex;
+        align-items: center;
+        ul{
+            display: flex;
+            margin-bottom: 0rem;
+            li{
+                list-style: none;
+                margin: 1rem;
+                font-size: larger;
+                a{
+                    color: black;
+                    text-decoration: none;
+                    transition: all 0.1s ease-in-out;
+                    &:hover{
+                        color: white;
+                    }
+                    // 下面功能為hover時展開線條
+                    // &::before{
+                    //   content: "";
+                    //   position: relative;
+                    //   display: block;
+                    //   top: 0;
+                    //   left: 0;
+                    //   height: 2px;
+                    //   width: 100%;
+                    //   background-color: black;
+                    //   transform: scaleX(0);
+                    //   transform-origin: left;
+                    //   transition: all 0.5s ease-in-out;
+                    // }
+                    // &::after{
+                    //   content: "";
+                    //   position: relative;
+                    //   display: block;
+                    //   bottom: 0;
+                    //   left: 0;
+                    //   height: 2px;
+                    //   width: 100%;
+                    //   background-color: black;
+                    //   transform: scaleX(0);
+                    //   transform-origin: right;
+                    //   transition: all 0.5s ease-in-out;
+                    // }
+                    // &:hover::before, &:hover::after {
+                    //   transform: scaleX(1); /* 在hover時展開線條 */
+                    // }
+                }
+            }
+        }
+    }
+    main{
+      
+        section.main-area{
+            min-height: 90vh;
+            background-color: rgb(160, 188, 231);
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            div.info{
+                flex-basis: 450px;
+                padding: 1rem;
+                h1{
+                    font-size: 2.8rem;
+                }
+                h2{
+                    font-size: 1rem;
+                }
+                a{
+                    color: black;
+                    background-color: rgb(115, 223, 214);
+                    padding: 0.25rem 0.5rem;
+                    font-size: 1.5rem;
+                    border-radius: 20px;
+                    text-decoration: none;
+                    display: inline-block;
+                    transition: all 0.2s ease;
+                    &:hover{
+                        transform:scale(1.2)
+                    }
+                    
+                }
+            }
+            div.img-area{
+                flex-basis: 450px;
+                img{
+                    width: 100%;
+                }
+            }
+
+        }
+        section.about-me{
+            background-color: rgb(231,255,233);
+            min-height: 100vh;
+            padding: 15vh 0vw;
+            display: flex;
+            justify-content: center;
+            section.description{
+                width:50%;
+                text-align: center;
+                h2{
+                    font-size: 2rem;
+                }
+                .progress-bar-area{
+                    p{
+                        margin-top: 1rem;
+                    }
+                }
+
+            }
+        }
+        section.resume{
+            display: flex;
+            flex-wrap: wrap;
+            min-height: 100vh;
+            padding: 15vh 0vw;
+
+            section.table{
+                flex: 5 0 500px;
+                // border: 2px solid black;
+                padding: 2rem;
+                table{
+                    --bs-table-bg: none;
+                    border-collapse: collapse;
+                    tr{
+                        border-bottom: 2px solid gray;
+                        transition: all 0.2s ease;
+                        &:hover{
+                            background-color: rgb(184,255,222);
+                        }
+                        td{
+                            padding: 1rem;
+                        }
+                    }
+                }
+                
+            }
+            section.picture {
+                flex: 1 1 500px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                position: relative;
+                img {
+                  width: 80%;
+                }
+        
+                div.greenRect {
+                  width: 30vw;
+                  height: 90vh;
+                  border: 10px solid rgb(195, 255, 200);
+                  position: absolute;
+                  top: 30px;
+                  left: 80px;
+                  z-index: -1;
+                }
+        
+                div.greenRect2 {
+                  width: 50vw;
+                  height: 40vh;
+                  border: 10px solid rgb(195, 255, 200);
+                  position: absolute;
+                  top: 300px;
+                  left: -300px;
+                  z-index: -1;
+                }
+        
+                div.greenRect3 {
+                  width: 50vw;
+                  height: 40vh;
+                  border: 10px solid rgb(195, 255, 200);
+                  position: absolute;
+                  top: 0px;
+                  left: -100px;
+                  z-index: -1;
+                }
+              }
+        }
+    }
+}
+
+@media screen and (max-width: 800px) {
+    body {
+      main {
+        section.about-me {
+          section.description {
+            width: 80%;
+          }
+        }
+  
+        section.resume {
+          overflow-x: auto;
+          section.picture {
+            div.greenRect,
+            div.greenRect2,
+            div.greenRect3 {
+              display: none;
+            }
+          }
+        }
+      }
+    }
+  }
+@media screen and (max-width: 500px) {
+    body {
+      nav {
+        position: static;
+        ul {
+          flex-direction: column;
+        }
+      }
+    }
+  }
